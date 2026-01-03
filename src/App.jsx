@@ -103,22 +103,22 @@ function App() {
 
         {/* Calendar Systems */}
         <div className="calendar-systems">
-          <div className="system-item">
+          <div className="system-item system-item-1">
             <strong>विक्रम संवत् 2082:</strong> पौष शुक्ल 13 से माघ शुक्ल 14 तक। तारीख 4 जनवरी से माघ प्रारम्भ ।।
           </div>
-          <div className="system-item">
+          <div className="system-item system-item-2">
             <strong>शालिवाहन शाके 1947:</strong> राष्ट्रीय पौष 11 से राष्ट्रीय माघ 11 तक। ता.21 जनवरी से राष्ट्रीय माघ प्रारम्भ।।
           </div>
-          <div className="system-item">
+          <div className="system-item system-item-3">
             <strong>फसली संवत् 1433:</strong> फसली पौष 27 से फसली माघ 28 तक। ता.4 जनवरी से फसली माघ माह प्रारम्भ।।
           </div>
-          <div className="system-item">
+          <div className="system-item system-item-4">
             <strong>इस्लामी हिजरी 1447:</strong> रज्जब 11 से सावान 11 तक। तारीख 21 जनवरी से सावान माह प्रारम्भ।।
           </div>
-          <div className="system-item">
+          <div className="system-item system-item-5">
             <strong>बंगला संवत् 1432:</strong> बंगला पौष 16 से बंगला माघ 17 तक। ता. 15 जनवरी से बंगला माघ माह प्रारम्भ।
           </div>
-          <div className="system-item">
+          <div className="system-item system-item-6">
             <strong>नेपाली संवत् 1146:</strong> नेपाली पौष 17 से नेपाली माघ 18 तक। ता. 14 जनवरी से नेपाली माघ माह प्रारम्भ।
           </div>
         </div>

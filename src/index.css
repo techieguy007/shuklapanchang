@@ -1,0 +1,15 @@
+:root{
+  --bg:#f7f7fb;
+  --card:#ffffff;
+  --accent:#7c3aed;
+  --muted:#666;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Roboto,system-ui,-apple-system,Arial;background:var(--bg);color:#111}
+.app{max-width:900px;margin:40px auto;padding:16px}
+.header{display:flex;flex-direction:column;gap:6px}
+.header h1{margin:0;color:var(--accent)}
+.hero{margin-top:20px}
+.card{background:var(--card);padding:16px;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+.card ul{margin:0;padding-left:18px;color:var(--muted)}
+.footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}

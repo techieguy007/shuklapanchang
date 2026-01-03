@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { generateMonthPanchang } from './utils/panchang'
+import AdSense from './components/AdSense'
 
 function App() {
   const [month, setMonth] = useState(0) // January
@@ -204,6 +205,12 @@ function App() {
 
         {/* Right Sidebar */}
         <aside className="right-sidebar">
+          {/* AdSense Ad - Top of Sidebar */}
+          <AdSense 
+            adSlot="YOUR_AD_SLOT_ID" 
+            style={{ marginBottom: '15px' }}
+          />
+          
           {/* Festivals */}
           <div className="sidebar-section">
             <h3 className="section-title">व्रत-त्यौहार</h3>
@@ -223,6 +230,12 @@ function App() {
               सोना, चांदी, रुई में घटाबढ़ से भारी तेजी कारक तथा प्रमुख किराना में मन्दी कारक है। कपास, सूत, सूती वस्त्र, तिल तेल, सोना-चांदी आदि में तेजी देखने को मिलेगी। खाद्यान्नों में विगत माह की आई हुई तेजी बरकरार रहेगी। उर्द, गुड़, सरसों, गुग्गुल, पारा, खाण्ड, धनिया, चावल, राई आदि में घट-बढ़ के साथ तेजी रहेगी। क्षरीय वस्तुओं में तेजी देखनों को मिलेगी।
             </div>
           </div>
+          
+          {/* AdSense Ad - Bottom of Sidebar */}
+          <AdSense 
+            adSlot="YOUR_AD_SLOT_ID" 
+            style={{ marginTop: '15px' }}
+          />
         </aside>
       </div>
 

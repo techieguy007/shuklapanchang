@@ -1,15 +1,368 @@
-:root{
-  --bg:#f7f7fb;
-  --card:#ffffff;
-  --accent:#7c3aed;
-  --muted:#666;
+:root {
+  --bg: #f5f5f0;
+  --card: #ffffff;
+  --accent: #d32f2f;
+  --accent-dark: #b71c1c;
+  --accent-light: #ef5350;
+  --gold: #ffd700;
+  --muted: #555;
+  --border: #ddd;
 }
-*{box-sizing:border-box}
-body{margin:0;font-family:Inter,Segoe UI,Roboto,system-ui,-apple-system,Arial;background:var(--bg);color:#111}
-.app{max-width:900px;margin:40px auto;padding:16px}
-.header{display:flex;flex-direction:column;gap:6px}
-.header h1{margin:0;color:var(--accent)}
-.hero{margin-top:20px}
-.card{background:var(--card);padding:16px;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
-.card ul{margin:0;padding-left:18px;color:var(--muted)}
-.footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg);
+  color: #111;
+}
+
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header h2 {
+  margin: 8px 0 0 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.header p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Navigation Controls */
+.nav-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-nav {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: white;
+  min-width: 120px;
+}
+
+.btn-nav:hover {
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-today {
+  background: var(--gold);
+  color: #333;
+  min-width: 100px;
+  font-weight: 700;
+}
+
+.btn-today:hover {
+  background: #ffd700;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Calendar Container */
+.calendar-container {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--accent-light);
+}
+
+.day-names {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.day-name {
+  background: var(--accent);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-cell {
+  aspect-ratio: 1;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafaf8;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.calendar-cell.empty {
+  background: transparent;
+  border: none;
+}
+
+.calendar-cell.active {
+  background: var(--card);
+  border: 2px solid var(--accent-light);
+  transition: all 0.2s ease;
+}
+
+.calendar-cell.active:hover {
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
+  transform: translateY(-2px);
+}
+
+.day-content {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.day-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.panchang-info {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.3;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.panchang-info small {
+  display: block;
+}
+
+/* Panchang Section */
+.panchang-section {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid var(--accent);
+}
+
+.panchang-section h3 {
+  margin: 0 0 16px 0;
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.panchang-card {
+  background: linear-gradient(135deg, rgba(211, 47, 47, 0.05) 0%, rgba(255, 215, 0, 0.05) 100%);
+  padding: 20px;
+}
+
+.panchang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.panchang-item {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent-light);
+}
+
+.panchang-item label {
+  font-weight: 600;
+  color: var(--accent-dark);
+  font-size: 13px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.panchang-item span {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Muhurat Section */
+.muhurat-section {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid var(--gold);
+}
+
+.muhurat-section h3 {
+  margin: 0 0 16px 0;
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.muhurat-card {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(255, 215, 0, 0.04) 100%);
+  padding: 20px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.muhurat-card p {
+  color: var(--accent-dark);
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  border-left: 3px solid var(--gold);
+}
+
+.muhurat-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.muhurat-item {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent-light);
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.muhurat-item strong {
+  color: var(--accent-dark);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.footer {
+  margin-top: 32px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .header h2 {
+    font-size: 18px;
+  }
+
+  .nav-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 8px 12px;
+    min-width: auto;
+  }
+
+  .calendar-cell {
+    min-height: 80px;
+    padding: 6px;
+  }
+
+  .day-number {
+    font-size: 18px;
+  }
+
+  .panchang-info {
+    font-size: 9px;
+  }
+
+  .day-name {
+    font-size: 11px;
+    padding: 8px 4px;
+  }
+
+  .panchang-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .panchang-item {
+    padding: 10px;
+  }
+
+  .panchang-item label {
+    font-size: 12px;
+  }
+
+  .panchang-item span {
+    font-size: 13px;
+  }
+}

@@ -108,7 +108,6 @@ export function generateMonthPanchang(year, month, lat = 25.3176, lon = 82.9739)
 
 export const SOURCE_NOTE_EN = 'Panchang calculations use Varanasi (25.3176 N, 82.9739 E)'
 export const SOURCE_NOTE_HI = 'पंचांग गणना के लिए वाराणसी (25.3176 N, 82.9739 E) का उपयोग किया गया है'
-import SunCalc from 'suncalc'
 import { julian, solar, moonposition } from 'astronomia'
 
 // Varanasi coordinates

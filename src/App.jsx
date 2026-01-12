@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { generateMonthPanchang } from './utils/panchang'
 import { monthData, horoscopeData } from './utils/monthData'
-import AdSense from './components/AdSense'
 
 function App() {
   const [month, setMonth] = useState(0) // January
@@ -186,12 +185,6 @@ function App() {
 
         {/* Right Sidebar */}
         <aside className="right-sidebar">
-          {/* AdSense Ad - Top of Sidebar */}
-          <AdSense 
-            adSlot="YOUR_AD_SLOT_ID" 
-            style={{ marginBottom: '15px' }}
-          />
-          
           {/* Festivals */}
           <div className="sidebar-section">
             <h3 className="section-title">व्रत-त्यौहार</h3>
@@ -211,12 +204,6 @@ function App() {
               {currentMonthData.marketTrends}
             </div>
           </div>
-          
-          {/* AdSense Ad - Bottom of Sidebar */}
-          <AdSense 
-            adSlot="YOUR_AD_SLOT_ID" 
-            style={{ marginTop: '15px' }}
-          />
         </aside>
       </div>
 

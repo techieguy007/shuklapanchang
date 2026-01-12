@@ -280,9 +280,9 @@ function App() {
 
         {/* Publisher Info */}
         <div className="publisher-info">
-          <h2 className="publisher-name">अंबरीष शुक्ल</h2>
           <div className="contact-info">
-            <p>© {year} अंबरीष शुक्ल पंचाङ्ग</p>
+            <p>© {year} अंबरीष शुक्ल</p>
+            <p>पंचाङ्ग उपयोग करने के लिए अनुमति प्राप्त करें, ईमेल करें: <a href="mailto:ambrish@iamshukla.com" target="_blank" rel="noopener noreferrer">ambrish@iamshukla.com</a></p>
           </div>
         </div>
       </footer>

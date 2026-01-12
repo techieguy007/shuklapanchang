@@ -26,7 +26,11 @@ function App() {
   // Get current month data
   const currentMonthData = monthData[month] || monthData[0]
   const festivals = currentMonthData.festivals
-  const horoscope = horoscopeData
+  
+  // Use month-specific horoscope if available, otherwise fall back to generic
+  const horoscope = currentMonthData.rashiFal 
+    ? Object.entries(currentMonthData.rashiFal).map(([sign, text]) => ({ sign, text }))
+    : horoscopeData
 
   // Navigation functions
   const goToPreviousMonth = () => {
@@ -238,7 +242,7 @@ function App() {
         {/* Mini Calendars */}
         <div className="mini-calendars">
           <div className="mini-calendar">
-            <h4>दिसम्बर {prevYear}</h4>
+            <h4>{monthNamesHI[prevMonth]} {prevYear}</h4>
             <div className="mini-day-names">
               {dayNamesHI.map((day, idx) => (
                 <div key={idx} className="mini-day-name">{day}</div>
@@ -251,7 +255,7 @@ function App() {
             </div>
           </div>
           <div className="mini-calendar">
-            <h4>फरवरी {nextYear}</h4>
+            <h4>{monthNamesHI[nextMonth]} {nextYear}</h4>
             <div className="mini-day-names">
               {dayNamesHI.map((day, idx) => (
                 <div key={idx} className="mini-day-name">{day}</div>

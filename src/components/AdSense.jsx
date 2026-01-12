@@ -33,8 +33,29 @@ function AdSense({
     }
   }, []);
 
-  if (!adSlot) {
-    return null;
+  if (!adSlot || adSlot === 'YOUR_AD_SLOT_ID') {
+    // Development placeholder
+    return (
+      <div style={{ 
+        margin: '20px 0', 
+        padding: '20px',
+        background: '#f0f0f0',
+        border: '2px dashed #ccc',
+        borderRadius: '8px',
+        textAlign: 'center',
+        color: '#666',
+        minHeight: '100px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        ...style 
+      }}>
+        <div>
+          <div style={{ fontSize: '14px', marginBottom: '5px' }}>📢 Ad Space</div>
+          <div style={{ fontSize: '12px' }}>Add your AdSense ad slot ID here</div>
+        </div>
+      </div>
+    );
   }
 
   return (
